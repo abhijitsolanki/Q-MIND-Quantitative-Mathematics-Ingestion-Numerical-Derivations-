@@ -6,7 +6,7 @@ Q-MIND builds a searchable mathematical knowledge base from a curated collection
 
 ---
 
-## 🚀 What Q-MIND Does
+##  What Q-MIND Does
 
 Financial mathematics is notation-heavy, formula-heavy, and often requires context spread across multiple textbooks.
 
@@ -25,7 +25,7 @@ Q-MIND addresses this with:
 
 ---
 
-# 🧠 System Architecture
+#  System Architecture
 
 ```text
                          ┌──────────────────────┐
@@ -96,7 +96,7 @@ Q-MIND addresses this with:
 
 ---
 
-# 📚 Knowledge Base
+#  Knowledge Base
 
 The vector database is built from a curated library of financial mathematics and quantitative finance references.
 
@@ -145,7 +145,7 @@ The repository's `processed_books.json` records the books processed by the inges
 
 ---
 
-# 🗄️ Vector Database
+#  Vector Database
 
 Q-MIND uses **ChromaDB** as its persistent vector database.
 
@@ -168,7 +168,7 @@ The configuration file also contains `BAAI/bge-base-en-v1.5` as an embedding-mod
 
 ---
 
-# 🔢 What Is Stored in the Database?
+#  What Is Stored in the Database?
 
 Every processed PDF is converted into many smaller chunks.
 
@@ -209,7 +209,7 @@ This metadata allows the system to return mathematical content together with its
 
 ---
 
-# 📥 Phase 1 — PDF Ingestion
+#  Phase 1 — PDF Ingestion
 
 The ingestion layer is implemented in `ingest.py`.
 
@@ -269,7 +269,7 @@ The 200-character overlap helps preserve derivation context across adjacent chun
 
 ---
 
-# 🧮 Phase 2 — Embedding & Vector Storage
+#  Phase 2 — Embedding & Vector Storage
 
 After a PDF has been extracted and chunked, Q-MIND sends the chunks to ChromaDB in batches.
 
@@ -303,7 +303,7 @@ can retrieve passages about stochastic differential equations, Itô calculus, de
 
 ---
 
-# ♻️ Checkpoint / Resume System
+#  Checkpoint / Resume System
 
 Q-MIND includes a checkpoint mechanism in `database.py`.
 
@@ -337,7 +337,7 @@ If ingestion is interrupted, rerunning `main.py` skips books already recorded in
 
 ---
 
-# 🔎 Retrieval Layer
+#  Retrieval Layer
 
 The retrieval implementation is in `rag_pipeline.py`.
 
@@ -372,7 +372,7 @@ This source-aware context is then passed into the first LLM stage.
 
 ---
 
-# 🤖 Two-Stage RAG Reasoning
+#  Two-Stage RAG Reasoning
 
 A central design choice in Q-MIND is that retrieved context is **not passed directly to the final answer generator**.
 
@@ -424,7 +424,7 @@ Book names and page metadata are retained for later citation.
 
 ---
 
-# 🧑‍🏫 Stage 2 — Mathematical & Financial Reasoner
+# ‍ Stage 2 — Mathematical & Financial Reasoner
 
 The second stage receives the structured output from Stage 1.
 
@@ -475,7 +475,7 @@ The output connects the mathematics to areas such as:
 
 ---
 
-# 🧪 Example End-to-End Query
+#  Example End-to-End Query
 
 A representative query used in the project is:
 
@@ -516,7 +516,7 @@ test_output.md
 
 ---
 
-# 🌐 Web Application
+#  Web Application
 
 Q-MIND also includes a Streamlit interface in:
 
@@ -536,7 +536,7 @@ The interface allows a user to:
 
 ---
 
-# 📁 Project Structure
+#  Project Structure
 
 ```text
 Q-MIND/
@@ -560,7 +560,7 @@ Q-MIND/
 
 ---
 
-# ⚙️ Installation
+#  Installation
 
 Clone the repository:
 
@@ -605,7 +605,7 @@ The RAG application also imports the Google GenAI SDK and `python-dotenv`, so th
 
 ---
 
-# 📂 Configure the PDF Library
+#  Configure the PDF Library
 
 Edit:
 
@@ -631,7 +631,7 @@ files.
 
 ---
 
-# 🏗️ Build the Vector Database
+#  Build the Vector Database
 
 Run:
 
@@ -663,7 +663,7 @@ At completion, the pipeline reports the total number of vectors in the collectio
 
 ---
 
-# 🔐 Environment Variables
+#  Environment Variables
 
 The RAG generation layer expects a Gemini API key.
 
@@ -678,7 +678,7 @@ Do **not** commit your real API key to GitHub.
 
 ---
 
-# 💬 Run the RAG Pipeline from Python
+#  Run the RAG Pipeline from Python
 
 The main RAG entry point is:
 
@@ -698,7 +698,7 @@ The generated answer is also written to the specified Markdown file.
 
 ---
 
-# 🌐 Run the Web Interface
+#  Run the Web Interface
 
 Launch Streamlit:
 
@@ -710,7 +710,7 @@ Then open the local Streamlit URL printed by the terminal.
 
 ---
 
-# 🧪 Testing
+#  Testing
 
 ## Test vector retrieval
 
@@ -740,7 +740,7 @@ The system test checks:
 
 ---
 
-# 📦 Vector Database Distribution
+#  Vector Database Distribution
 
 The generated ChromaDB directory is intentionally **not committed directly to GitHub**.
 
@@ -770,7 +770,7 @@ The source PDFs are also kept separate from the Git repository because of their 
 
 ---
 
-# 📊 Current Database Information
+#  Current Database Information
 
 The existing RAG pipeline reports a working collection containing:
 
@@ -784,7 +784,7 @@ Because the vector database is distributed as a ZIP rather than committed into G
 
 ---
 
-# 🔍 Why Page-Level Metadata Matters
+#  Why Page-Level Metadata Matters
 
 Financial mathematics is highly dependent on derivation context.
 
@@ -817,7 +817,7 @@ This is useful for:
 
 ---
 
-# 🎯 Design Goals
+#  Design Goals
 
 ### 1. Mathematical Retrieval
 
@@ -853,7 +853,7 @@ Source References
 
 ---
 
-# 🛠️ Future Extensions
+#  Future Extensions
 
 Possible extensions include:
 
@@ -872,7 +872,7 @@ Possible extensions include:
 
 ---
 
-# ⚠️ Important Notes
+#  Important Notes
 
 ### Source PDFs
 
@@ -888,7 +888,7 @@ The `vector_db` directory is external to the normal GitHub source tree because o
 
 ---
 
-# 📄 Example Output
+#  Example Output
 
 A generated report follows this structure:
 
@@ -910,7 +910,7 @@ test_output.md
 
 ---
 
-# 👨‍💻 Author
+# ‍ Author
 
 **Abhijit Solanki**
 
@@ -952,7 +952,7 @@ It is to build a **retrieval and reasoning layer specialized for quantitative fi
 
 ---
 
-## 📌 Quick Start
+##  Quick Start
 
 ```bash
 git clone https://github.com/abhijitsolanki/Q-MIND-Quantitative-Mathematics-Ingestion-Numerical-Derivations-.git
